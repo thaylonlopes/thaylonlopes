@@ -20,7 +20,7 @@
     </a>
     <!-- METRICS:TOTAL_DOWNLOADS -->
     <a href="https://www.nuget.org/profiles/ThaylonMALopes">
-      <img src="https://img.shields.io/badge/Downloads%20Consolidados-20.671%2B-2ea44f?style=flat-square&logo=github" alt="Total Downloads" />
+      <img src="https://img.shields.io/badge/Downloads%20Consolidados-21.448%2B-2ea44f?style=flat-square&logo=github" alt="Total Downloads" />
     </a>
     <!-- /METRICS:TOTAL_DOWNLOADS -->
     <a href="https://www.linkedin.com/in/thaylon-lopes/">
@@ -191,5 +191,5 @@ Bibliotecas especializadas para mensageria, resiliência, dados e fundação de 
 ---
 
 <div align="center">
-  <sub>Telemetria de downloads sincronizada via GitHub Actions. Última atualização: <!-- METRICS:UPDATED_AT -->25/09/2026<!-- /METRICS:UPDATED_AT -->.</sub>
+  <sub>Telemetria de downloads sincronizada via GitHub Actions. Última atualização: <!-- METRICS:UPDATED_AT -->26/09/2026<!-- /METRICS:UPDATED_AT -->.</sub>
 </div>
