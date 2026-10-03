@@ -191,5 +191,5 @@ Bibliotecas especializadas para mensageria, resiliência, dados e fundação de 
 ---
 
 <div align="center">
-  <sub>Telemetria de downloads sincronizada via GitHub Actions. Última atualização: <!-- METRICS:UPDATED_AT -->02/10/2026<!-- /METRICS:UPDATED_AT -->.</sub>
+  <sub>Telemetria de downloads sincronizada via GitHub Actions. Última atualização: <!-- METRICS:UPDATED_AT -->03/10/2026<!-- /METRICS:UPDATED_AT -->.</sub>
 </div>
