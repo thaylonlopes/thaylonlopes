@@ -20,7 +20,7 @@
     </a>
     <!-- METRICS:TOTAL_DOWNLOADS -->
     <a href="https://www.nuget.org/profiles/ThaylonMALopes">
-      <img src="https://img.shields.io/badge/Downloads%20Consolidados-23.779%2B-2ea44f?style=flat-square&logo=github" alt="Total Downloads" />
+      <img src="https://img.shields.io/badge/Downloads%20Consolidados-28.214%2B-2ea44f?style=flat-square&logo=github" alt="Total Downloads" />
     </a>
     <!-- /METRICS:TOTAL_DOWNLOADS -->
     <a href="https://www.linkedin.com/in/thaylon-lopes/">

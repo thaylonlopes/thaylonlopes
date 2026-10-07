@@ -8,6 +8,7 @@ const fs = require('fs');
 const path = require('path');
 
 const NUGET_SEARCH_URL = 'https://azuresearch-usnc.nuget.org/query?q=owner:ThaylonMALopes&take=100';
+const NUGET_PROFILE_URL = 'https://www.nuget.org/profiles/ThaylonMALopes';
 const NPM_MONTHLY_URL = 'https://api.npmjs.org/downloads/point/last-month/tl-foundry';
 const NPM_WEEKLY_URL = 'https://api.npmjs.org/downloads/point/last-week/tl-foundry';
 const README_PATH = path.join(__dirname, '..', 'README.md');
@@ -21,6 +22,26 @@ async function fetchJson(url) {
     console.error(`Erro ao consultar ${url}:`, err.message);
     return null;
   }
+}
+
+async function getNugetProfileTotalDownloads() {
+  try {
+    const res = await fetch(NUGET_PROFILE_URL, {
+      headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)' }
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const html = await res.text();
+    const match = html.match(/<div class="value">\s*([0-9,.]+)\s*<\/div>\s*<div class="description">\s*Total downloads of packages/i);
+    if (match) {
+      const cleanNum = parseInt(match[1].replace(/[,.]/g, ''), 10);
+      if (!isNaN(cleanNum) && cleanNum > 0) {
+        return cleanNum;
+      }
+    }
+  } catch (err) {
+    console.warn('Aviso: Fallback para API do NuGet acionado:', err.message);
+  }
+  return null;
 }
 
 async function getNpmAllTimeDownloads(packageName) {
@@ -46,6 +67,13 @@ async function collectMetrics() {
     for (const pkg of nugetData.data) {
       totalNugetDownloads += (pkg.totalDownloads || 0);
     }
+  }
+
+  // Tenta obter o total consolidado em tempo real do perfil do NuGet (mais atualizado que o index de busca)
+  const profileTotal = await getNugetProfileTotalDownloads();
+  if (profileTotal && profileTotal >= totalNugetDownloads) {
+    console.log(`Usando contagem em tempo real do perfil NuGet: ${profileTotal} (vs ${totalNugetDownloads} da API de busca)`);
+    totalNugetDownloads = profileTotal;
   }
 
   // 2. Coleta do NPM (tl-foundry)
